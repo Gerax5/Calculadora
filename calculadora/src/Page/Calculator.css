@@ -7,11 +7,15 @@
     align-items: center;
     width: 50%;
     height: 80%;
-    background-color: rebeccapurple;
+    background-color: rgb(106, 105, 105);
 }
 
 .ContainerButtons{
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 82%;
     height: 80%;
-    background-color: aqua;
+    background-color: rgb(208, 208, 208);
 }

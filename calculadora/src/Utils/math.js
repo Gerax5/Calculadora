@@ -4,10 +4,10 @@ export function add(a, b) {
 }
   
 export function sub(a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
   
-  // Función de multiplicación
+
 export function mul(a, b) {
     return a * b;
 }
