@@ -12,6 +12,7 @@ const Button = ({ text, onClick, compareTo, styleButton }) => {
 
 
   const manejarTecla = (event) => {
+    console.log("%")
       if(event.key == compareTo){
         botonRef.current.click();
       }

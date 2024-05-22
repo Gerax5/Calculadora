@@ -2,7 +2,7 @@ import './Calculator.css'
 import Panel from '../Components/Panel'
 import Button from '../Components/Button/Button'
 import { useEffect, useState } from 'react'
-import { add, sub, mul, div } from '../Utils/math'
+import { add, sub, mul, div, mod } from '../Utils/math'
 
 const Calculator = () => {
     const [toShow, setToShow] = useState('')
@@ -133,7 +133,7 @@ const Calculator = () => {
                     <Button text={"/"} compareTo={'/'} onClick={() => handlerOnClickCharacter('/', div)}></Button>
                     <Button text={"x"} compareTo={'*'} onClick={() => handlerOnClickCharacter('*', mul)}></Button>
                     <Button text={"-"} compareTo={'-'} onClick={() => handlerOnClickCharacter('-', sub)}></Button>
-                    <Button text={"%"} compareTo={'%'} onClick={() => handlerOnClickNumbers('1')}></Button>
+                    <Button text={"%"} compareTo={'%'} onClick={() => handlerOnClickCharacter('%', mod)}></Button>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <Button text={"7"} compareTo={'7'} onClick={() => handlerOnClickNumbers('7')}></Button>
