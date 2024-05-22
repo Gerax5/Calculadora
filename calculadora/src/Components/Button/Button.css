@@ -15,3 +15,8 @@
 outline: none;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
+
+.button-active {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 4px rgba(0, 0, 0, 0.24);
+  }

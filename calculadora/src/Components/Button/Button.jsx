@@ -5,12 +5,15 @@ import './Button.css'
 const Button = ({ text, onClick }) => {
   const [clicked, setclicked] = useState(false)
   const botonRef = useRef(null);
+  const [active, setActive] = useState(false)
   let debounceTimeout;
 
 
   const manejarTecla = (event) => {
       if(event.key == text){
         botonRef.current.click();
+        setActive(true);
+        setTimeout(() => setActive(false), 500);
       }
   };
 
@@ -49,7 +52,7 @@ const Button = ({ text, onClick }) => {
   }
 
   return (
-    <button ref={botonRef} className="button" onClick={handleClick} title={text}>
+    <button ref={botonRef} className={`button ${active ? 'button-active' : ''}`} onClick={handleClick} title={text}>
       {text}
     </button>
   )
