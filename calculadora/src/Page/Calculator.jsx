@@ -55,15 +55,20 @@ const Calculator = () => {
                 newSecondNumber = numbersArray.join('');
                 newSecondNumber = Number(newSecondNumber)
             }
-            let result = typeFunction(firstNumber, newSecondNumber)
-            result = result.toString().slice(0, 9)
-            let newArray = Array.from(result)
-            setNumberArray(newArray)
+            try {
+                let result = typeFunction(firstNumber, newSecondNumber)
+                result = result.toString().slice(0, 9)
+                let newArray = Array.from(result)
+                setNumberArray(newArray)
+            } catch (error) {
+                setToShow('Error')
+            }
             setIsFirstNumber(false)
             setIsFinish(false)
             return
         }
         if (!isFirstNumber) {
+            
             let newFirstNumber
             if (numbersArray.length < 1) {
                 newFirstNumber = 0
