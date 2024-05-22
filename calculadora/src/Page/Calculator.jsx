@@ -29,7 +29,24 @@ const Calculator = () => {
     }
 
     const handlerOnClickCharacter = (type, func = null) => {
-        console.log(typeFunction)
+        if(type == 'cambio'){
+            if(numbersArray.length < 9){
+                let newNumbersArray;
+                if (numbersArray[0] === '-') {
+                    newNumbersArray = numbersArray.slice(1);
+                } else {
+                    newNumbersArray = ['-', ...numbersArray];
+                }
+                setNumberArray(newNumbersArray);
+            }else{
+                let newNumbersArray;
+                if (numbersArray[0] === '-') {
+                    newNumbersArray = numbersArray.slice(1);
+                    setNumberArray(newNumbersArray);
+                }
+            }
+            return
+        }
         if(type == 'CE'){
             setToShow('')
             setNumberArray([])
@@ -59,7 +76,9 @@ const Calculator = () => {
                 let result = typeFunction(firstNumber, newSecondNumber)
                 result = result.toString().slice(0, 9)
                 let newArray = Array.from(result)
+                console.log(result)
                 setNumberArray(newArray)
+                console.log(numbersArray)
             } catch (error) {
                 setToShow('Error')
             }
@@ -91,6 +110,7 @@ const Calculator = () => {
             }
             let result = typeFunction(firstNumber, newSecondNumber)
             result = result.toString().slice(0, 9)
+            console.log(result)
             let newArray = Array.from(result)
             setNumberArray(newArray)
             setFirstNumber(Number(result))
@@ -130,11 +150,12 @@ const Calculator = () => {
                     <Button text={"1"} compareTo={'1'} onClick={() => handlerOnClickNumbers('1')}></Button>
                     <Button text={"2"} compareTo={'2'} onClick={() => handlerOnClickNumbers('2')}></Button>
                     <Button text={"3"} compareTo={'3'} onClick={() => handlerOnClickNumbers('3')}></Button>
-                    <Button text={"CE"} onClick={() => handlerOnClickCharacter('CE')}></Button>
+                    <Button text={"CE"} compareTo={'B'} onClick={() => handlerOnClickCharacter('CE')}></Button>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <Button text={"0"} compareTo={'0'} onClick={() => handlerOnClickNumbers('0')} styleButton={{ width: "160px" }}></Button>
                     <Button text={"."} compareTo={'.'} onClick={() => handlerOnClickNumbers('.')}></Button>
+                    <Button text={"(-/+)"} compareTo={'C'} onClick={() => handlerOnClickCharacter('cambio')}></Button>
                 </div>
             </div>
         </div>
