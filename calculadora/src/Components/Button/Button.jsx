@@ -8,6 +8,8 @@ const Button = ({ text, onClick, compareTo, styleButton }) => {
   const [active, setActive] = useState(false)
   let debounceTimeout;
 
+  text = text?.slice(0,9)
+
 
   const manejarTecla = (event) => {
       if(event.key == compareTo){

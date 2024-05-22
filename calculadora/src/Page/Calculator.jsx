@@ -29,14 +29,15 @@ const Calculator = () =>{
     }
 
     const handlerOnClickCharacter = (type) =>{
-
+        if(type == 'del'){
+            const newNumberArray = numbersArray.slice(0, -1);
+            setNumberArray(newNumberArray);
+        }
     }
     
     useEffect(() => {
-        for (let i = 0; i < numbersArray.length; i++) {
-            let previous = toShow
-            setToShow(previous+numbersArray[i])
-        }
+        const newToShow = numbersArray.join('');
+        setToShow(newToShow);
     },[numbersArray])
 
     return (
@@ -59,7 +60,7 @@ const Calculator = () =>{
                     <Button text={"4"} compareTo={'4'} onClick={() => handlerOnClikNumbers('4')}></Button>
                     <Button text={"5"} compareTo={'5'} onClick={() => handlerOnClikNumbers('5')}></Button>
                     <Button text={"6"} compareTo={'6'} onClick={() => handlerOnClikNumbers('6')}></Button>
-                    <Button text={"C"} compareTo={"Delete"} onClick={()=> console.log('7')}></Button>
+                    <Button text={"C"} compareTo={"Backspace"} onClick={()=> handlerOnClickCharacter('del')}></Button>
                 </div>
                 <div style={{display:'flex',flexDirection:'row'}}>
                     <Button text={"1"} compareTo={'1'} onClick={() => handlerOnClikNumbers('1')}></Button>
