@@ -29,3 +29,14 @@ export function div(a, b) {
         throw new Error("No se puede dividir por cero");
     }
 }
+
+export function mod(a, b) {
+    if (isNaN(a) || isNaN(b)) {
+        throw new Error("No se puede calcular el módulo con NaN");
+    }
+    if (b !== 0) {
+        return a % b;
+    } else {
+        throw new Error("No se puede dividir por cero");
+    }
+}

@@ -133,6 +133,7 @@ const Calculator = () => {
                     <Button text={"/"} compareTo={'/'} onClick={() => handlerOnClickCharacter('/', div)}></Button>
                     <Button text={"x"} compareTo={'*'} onClick={() => handlerOnClickCharacter('*', mul)}></Button>
                     <Button text={"-"} compareTo={'-'} onClick={() => handlerOnClickCharacter('-', sub)}></Button>
+                    <Button text={"%"} compareTo={'%'} onClick={() => handlerOnClickNumbers('1')}></Button>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <Button text={"7"} compareTo={'7'} onClick={() => handlerOnClickNumbers('7')}></Button>
