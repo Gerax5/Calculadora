@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types';
 import './Button.css'
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, compareTo, styleButton }) => {
   const [clicked, setclicked] = useState(false)
   const botonRef = useRef(null);
   const [active, setActive] = useState(false)
@@ -10,10 +10,8 @@ const Button = ({ text, onClick }) => {
 
 
   const manejarTecla = (event) => {
-      if(event.key == text){
+      if(event.key == compareTo){
         botonRef.current.click();
-        setActive(true);
-        setTimeout(() => setActive(false), 500);
       }
   };
 
@@ -34,6 +32,7 @@ const Button = ({ text, onClick }) => {
   }, [clicked])
 
   const handleClick = async () => {
+
     if (clicked || debounceTimeout) {
       return
     }
@@ -47,12 +46,14 @@ const Button = ({ text, onClick }) => {
         setclicked(false)
       }, 500);
 
+      setActive(true);
+    setTimeout(() => setActive(false), 500);
     
     await onClick()
   }
 
   return (
-    <button ref={botonRef} className={`button ${active ? 'button-active' : ''}`} onClick={handleClick} title={text}>
+    <button ref={botonRef} className={`button ${active ? 'button-active' : ''}`} onClick={handleClick} title={text} style={styleButton}>
       {text}
     </button>
   )
@@ -60,7 +61,9 @@ const Button = ({ text, onClick }) => {
 
 Button.propTypes = {
     text: PropTypes.string,
-    onClick: PropTypes.any
+    onClick: PropTypes.any,
+    compareTo: PropTypes.any,
+    styleButton: PropTypes.any
 }
 
 export default Button

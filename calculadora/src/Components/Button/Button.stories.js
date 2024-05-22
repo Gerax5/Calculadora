@@ -12,6 +12,7 @@ export const Default = {
   args: {
     text: '+',
     onClick: fn(),
+    compareTo: '+'
   }
 }
 
@@ -32,6 +33,7 @@ export const HasAToolTip = {
 export const ResponseToKeyboard = {
     args: {
         text: '+',
-        onClick: action('+')
+        onClick: action('+'),
+        compareTo: '+'
     }
 }
