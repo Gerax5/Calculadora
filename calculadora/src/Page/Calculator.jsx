@@ -11,6 +11,7 @@ const Calculator = () =>{
     const [typeFunction, setTypeFunction] = useState(null)
     const [secondNumber, setSecondNumber] = useState(0)
     const [isFirstNumber, setIsFirstNumber] = useState(false)
+    const [isFinish, setIsFinish] = useState(false)
 
     const handlerOnClikNumbers = (type) =>{
         console.log(type)
