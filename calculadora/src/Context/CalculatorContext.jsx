@@ -1,4 +1,5 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
+import PropTypes from 'prop-types'
 
 const MiContexto = createContext();
 
@@ -9,6 +10,10 @@ const CalculatorContext = ({children}) => {
             {children}
         </MiContexto.Provider>
     )
+}
+
+CalculatorContext.propTypes = {
+    children: PropTypes.any
 }
 
 export default CalculatorContext
