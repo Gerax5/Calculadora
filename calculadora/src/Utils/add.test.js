@@ -1,16 +1,25 @@
-import { describe, it, expect } from 'vitest'
+import { it, expect } from 'vitest'
 import { add } from './math'
 
-describe('adds two numbers correctly', () => {
-    it('adds one plus one and returns two', () => {
-      expect(add(1, 1)).toEqual(2)
-    })
-  
-    it('add 1.1 plus 1.1 and returns 2.2', () => {
-      expect(add(1.1, 1.1)).toEqual(2.2)
-    })
-  
-    it('add 1 plus 2 as string and returns 3 as int', () => {
-      expect(add('1', '2')).toEqual(3)
-    })
+it('suma basica', () => {
+    expect(add(5, 5)).toEqual(10);
+})
+
+
+it('suma de números muy grandes', () => {
+    let num1 = Number.MAX_SAFE_INTEGER;
+    let num2 = Number.MAX_SAFE_INTEGER;
+    expect(add(num1, num2)).toEqual(num1 + num2);
+})
+
+it('suma de números negativos', () => {
+    expect(add(-1, -2)).toEqual(-3);
+})
+
+it('suma con NaN', () => {
+    expect(add(NaN, 2)).toBeNaN();
+})
+
+it('suma con Infinity', () => {
+    expect(add(Infinity, 2)).toEqual(Infinity);
 })
